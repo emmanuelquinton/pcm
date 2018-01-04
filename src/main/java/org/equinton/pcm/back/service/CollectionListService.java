@@ -1,3 +1,4 @@
+ 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -6,7 +7,7 @@
 package org.equinton.pcm.back.service;
 
 import javax.transaction.Transactional;
-import org.equinton.pcm.back.dao.Collection;
+import org.equinton.pcm.back.dao.CollectionList;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -15,7 +16,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 @Transactional
-public class CollectionService extends AbstractService<Collection> {
+public class CollectionListService extends AbstractService<CollectionList> {
     
 
     

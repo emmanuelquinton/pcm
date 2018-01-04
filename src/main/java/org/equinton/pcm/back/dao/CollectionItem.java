@@ -23,7 +23,7 @@ public class CollectionItem extends PcmObject {
     @Column
     private String editor;
     @ManyToOne
-    private Collection collection;
+    private CollectionList collection;
     
     
            
@@ -40,7 +40,7 @@ public class CollectionItem extends PcmObject {
      * @param author
      * @param editor 
      */
-    public CollectionItem(String name, String author, String editor, Collection collection) {
+    public CollectionItem(String name, String author, String editor, CollectionList collection) {
         super();
         this.name = name;
         this.author = author;
@@ -77,7 +77,7 @@ public class CollectionItem extends PcmObject {
      * an item can belong to one and only one collection
      * @return Collection
      */
-    public Collection getCollection() {
+    public CollectionList getCollection() {
         return collection;
     }
     

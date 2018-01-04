@@ -7,14 +7,10 @@ package org.equinton.pcm.back.dao;
 
 import java.util.Set;
 import java.util.TreeSet;
-import javax.persistence.Access;
-import javax.persistence.AccessType;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import org.equinton.pcm.back.common.CollectionType;
 
 /**
@@ -23,7 +19,7 @@ import org.equinton.pcm.back.common.CollectionType;
  * @author Emmanuel
  */
 @Entity(name = "COLLECTION")
-public class Collection extends PcmObject {
+public class CollectionList extends PcmObject {
 
     @Column
     private String name;
@@ -31,11 +27,10 @@ public class Collection extends PcmObject {
     private CollectionType type;
     
     @Column
-//    @ElementCollection(targetClass=CollectionItem.class)
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "collection")
     private Set<CollectionItem> items;
 
-    public Collection() {
+    public CollectionList() {
         super();
         this.items = new TreeSet<>();
 
