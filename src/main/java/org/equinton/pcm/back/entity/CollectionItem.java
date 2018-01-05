@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.equinton.pcm.back.dao;
+package org.equinton.pcm.back.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,7 +14,7 @@ import javax.persistence.ManyToOne;
  * @author Emmanuel
  */
 @Entity(name="COLLECTION_ITEM")
-public class CollectionItem extends PcmObject {
+public class CollectionItem extends PcmEntity {
     
     @Column
     private String name;

@@ -7,7 +7,7 @@ package org.equinton.pcm.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.equinton.pcm.back.dao.CollectionList;
+import org.equinton.pcm.back.entity.CollectionList;
 import org.equinton.pcm.back.service.CollectionListService;
 import org.equinton.pcm.controller.dto.CollectionListDTO;
 import org.springframework.beans.factory.annotation.Autowired;

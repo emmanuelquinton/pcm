@@ -13,14 +13,14 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.equinton.pcm.back.dao.CollectionList;
+import org.equinton.pcm.back.entity.CollectionList;
 /**
  *
  * @author Emmanuel
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class CollectionServiceITest {
+public class CollectionListServiceITest {
     
     @Autowired
      private CollectionListService collectionService;
@@ -45,7 +45,7 @@ public class CollectionServiceITest {
         
         
         List<CollectionList> collections = this.collectionService.findAll();
-        Assert.assertEquals(3, collections.size());
+        Assert.assertEquals(3, collections.size()); // for the moment i test 3 because with maven one collectionList is created  
     }
 
 }

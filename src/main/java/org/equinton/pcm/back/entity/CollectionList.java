@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.equinton.pcm.back.dao;
+package org.equinton.pcm.back.entity;
 
 import java.util.Set;
 import java.util.TreeSet;
@@ -19,7 +19,7 @@ import org.equinton.pcm.back.common.CollectionType;
  * @author Emmanuel
  */
 @Entity(name = "COLLECTION")
-public class CollectionList extends PcmObject {
+public class CollectionList extends PcmEntity {
 
     @Column
     private String name;
@@ -28,7 +28,7 @@ public class CollectionList extends PcmObject {
     
     @Column
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "collection")
-    private Set<CollectionItem> items;
+    private final Set<CollectionItem> items;
 
     public CollectionList() {
         super();

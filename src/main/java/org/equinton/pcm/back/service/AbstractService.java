@@ -12,43 +12,33 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import org.equinton.pcm.back.dao.PcmObject;
+import org.equinton.pcm.back.entity.PcmEntity;
+import org.equinton.pcm.back.repository.PcmRepository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  * @author Emmanuel
- * @param <T>
+ * @param <E>
+ * @param <R>
  */
 @Transactional(propagation = Propagation.REQUIRED)
-public abstract class AbstractService<T extends PcmObject> {
+public abstract class AbstractService<E extends PcmEntity, R extends PcmRepository> {
 
-    @PersistenceContext
-    private EntityManager entityManager;
 
-    private Class<T> pcmBeanClass;
-
-    @PostConstruct
-    private void init() {
-        ParameterizedType genericSuperclass = (ParameterizedType) getClass().getGenericSuperclass();
-        pcmBeanClass = (Class<T>) genericSuperclass.getActualTypeArguments()[0];
-    }
-
-    public long insert(T object) {
-        this.entityManager.persist(object);
+    public long insert(E object) {
+        this.getRepository().save(object);
         return object.getId();
     }
 
-    public T findById(Long Id) {
-        return this.entityManager.find(pcmBeanClass, Id);
+    public E findById(Long Id) {
+        return (E)this.getRepository().findById(Id);
     }
 
-    public List<T> findAll() {
-        final CriteriaBuilder criteriaBuilder = this.entityManager.getCriteriaBuilder();
-        CriteriaQuery criteriaQueryBean = criteriaBuilder.createQuery();
-        criteriaQueryBean.select(criteriaQueryBean.from(pcmBeanClass));
-        return this.entityManager.createQuery(criteriaQueryBean).getResultList();
+    public List<E> findAll() {
+        return this.getRepository().findAll();
     }
-
+    
+    protected abstract R getRepository() ;
 }

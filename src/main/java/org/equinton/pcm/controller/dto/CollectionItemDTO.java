@@ -5,7 +5,7 @@
  */
 package org.equinton.pcm.controller.dto;
 
-import org.equinton.pcm.back.dao.CollectionItem;
+import org.equinton.pcm.back.entity.CollectionItem;
 import org.modelmapper.ModelMapper;
 
 /**

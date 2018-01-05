@@ -7,8 +7,8 @@ package org.equinton.pcm.back.service;
 
 import java.util.List;
 import org.equinton.pcm.back.common.CollectionType;
-import org.equinton.pcm.back.dao.CollectionList;
-import org.equinton.pcm.back.dao.CollectionItem;
+import org.equinton.pcm.back.entity.CollectionList;
+import org.equinton.pcm.back.entity.CollectionItem;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

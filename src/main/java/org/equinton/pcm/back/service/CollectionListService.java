@@ -7,16 +7,27 @@
 package org.equinton.pcm.back.service;
 
 import javax.transaction.Transactional;
-import org.equinton.pcm.back.dao.CollectionList;
-import org.springframework.stereotype.Repository;
+import org.equinton.pcm.back.entity.CollectionList;
+import org.equinton.pcm.back.repository.CollectionListRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Emmanuel
  */
-@Repository
+@Service
 @Transactional
-public class CollectionListService extends AbstractService<CollectionList> {
+public class CollectionListService extends AbstractService<CollectionList, CollectionListRepository> {
+
+    @Autowired
+    private CollectionListRepository collectionListRepository;
+    
+    @Override
+    protected CollectionListRepository getRepository() {
+      return this.collectionListRepository;
+    }
+
     
 
     

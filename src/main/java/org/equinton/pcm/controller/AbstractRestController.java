@@ -5,14 +5,14 @@
  */
 package org.equinton.pcm.controller;
 
-import org.equinton.pcm.back.dao.PcmObject;
+import org.equinton.pcm.back.entity.PcmEntity;
 import org.equinton.pcm.controller.dto.PcmDTO;
 
 /**
  *
  * @author Emmanuel
  */
-public class AbstractRestController<DTO extends PcmDTO, Bean extends PcmObject> {
+public class AbstractRestController<DTO extends PcmDTO, Bean extends PcmEntity> {
     
     
     

@@ -6,7 +6,7 @@
 package org.equinton.pcm.controller.dto;
 
 import org.equinton.pcm.back.common.CollectionType;
-import org.equinton.pcm.back.dao.CollectionList;
+import org.equinton.pcm.back.entity.CollectionList;
 import org.modelmapper.ModelMapper;
 
 /**
