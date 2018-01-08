@@ -5,13 +5,9 @@
  */
 package org.equinton.pcm.back.service;
 
-import java.lang.reflect.ParameterizedType;
 import java.util.List;
-import javax.annotation.PostConstruct;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
+import org.equinton.pcm.aop.annotation.Log;
+import org.equinton.pcm.aop.annotation.Monitor;
 import org.equinton.pcm.back.entity.PcmEntity;
 import org.equinton.pcm.back.repository.PcmRepository;
 import org.springframework.transaction.annotation.Propagation;
@@ -36,6 +32,8 @@ public abstract class AbstractService<E extends PcmEntity, R extends PcmReposito
         return (E)this.getRepository().findById(Id);
     }
 
+    @Log
+    @Monitor
     public List<E> findAll() {
         return this.getRepository().findAll();
     }
