@@ -9,8 +9,8 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
-import org.equinton.pcm.config.AspectJConfiguration;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.stereotype.Component;
 
@@ -23,7 +23,7 @@ import org.springframework.stereotype.Component;
 @ConditionalOnExpression("${pcm.aop.aspect.log}")
 public class LogginAspect extends PcmAspect {
 
-
+    public final static Logger LOGGER = LoggerFactory.getLogger(LogginAspect.class);
     
     
     @Pointcut("@annotation(org.equinton.pcm.aop.annotation.Log)")
@@ -32,7 +32,7 @@ public class LogginAspect extends PcmAspect {
     
     @Before("executionMethod() && hasLogAnnotion()")
     public void beforeExecutionMethodWithLogAnnotation(JoinPoint joinPoint) throws Throwable {
-        System.out.println(">>>>> @Inject String field: "
+        LOGGER.info(">>>>> @Inject String field: "
                 + joinPoint.getSignature() + " with value: " + joinPoint);
     }
 }
