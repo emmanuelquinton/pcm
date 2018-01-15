@@ -19,6 +19,10 @@ public class CollectionItem extends PcmEntity {
     @Column
     private String name;
     @Column
+    private String genre;
+    @Column
+    private String support;
+    @Column
     private String author;
     @Column
     private String editor;
@@ -48,6 +52,12 @@ public class CollectionItem extends PcmEntity {
         this.collection = collection;
     }
     
+    public CollectionItem(String name,String genre,String support, String author, String editor, CollectionList collection) {
+     this(name, author, editor, collection);
+     this.genre = genre;
+     this.support = support;
+    }
+    
     /**
      * Return name of item
      * @return 
@@ -56,6 +66,14 @@ public class CollectionItem extends PcmEntity {
         return name;
     }
 
+    public String getGenre() {
+        return genre;
+    }
+
+    public String getSupport() {
+        return support;
+    }
+   
     /**
      * Return author of item
      * @return  String

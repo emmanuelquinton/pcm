@@ -15,6 +15,8 @@ import org.modelmapper.ModelMapper;
 public class CollectionItemDTO {
         
     private String name;
+    private String genre;
+    private String support;
     private String author;
     private String editor;
     private CollectionListDTO collection;
@@ -51,6 +53,24 @@ public class CollectionItemDTO {
         this.name = name;
     }
 
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public String getSupport() {
+        return support;
+    }
+
+    public void setSupport(String support) {
+        this.support = support;
+    }
+
+    
+    
     public String getAuthor() {
         return author;
     }
